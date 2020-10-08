@@ -28,7 +28,11 @@ export default {
             if (this.content) {
                 this.checkContent();
                 this.$store.commit("addPost", {
-                    user_id: this.user.id,
+                    user_info: {
+                        user_id: "5f7f893d342a82931cb1c2fc",
+                        picture: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+                        name: "Chase Miranda",
+                    },
                     id: "5f7ce11b654acfc98e7748cd",
                     media: this.media,
                     name: this.user.name,
