@@ -40,5 +40,7 @@ body {
 p,
 span {
     color: #a1a1a1;
+    line-height: 1.5rem;
+    font-size: 1rem;
 }
 </style>

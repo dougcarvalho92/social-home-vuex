@@ -29,20 +29,35 @@ export default createStore({
       state.user = user;
     },
   },
+  getters: {
+    async userInfo(id) {
+      const data = await axios
+        .get("../data.json")
+        .then((result) => result.data.users);
+      return data.filter((user) => user.id == id)[0];
+    },
+  },
   actions: {
-    async fetchPosts({ commit }, id) {
+    async fetchPosts({ commit }) {
       const data = await axios
         .get("../data.json")
         .then((result) => result.data.posts);
 
       commit(
         "setPosts",
-        data
-          .sort((a, b) => new Date(b.registered) - new Date(a.registered))
-          .filter((post) => post.user_id == id)
+        data.sort((a, b) => new Date(b.registered) - new Date(a.registered))
       );
     },
     async fetchUsers({ commit }, id) {
+      const data = await axios
+        .get("../data.json")
+        .then((result) => result.data.users);
+      const filtered = data.filter((user) => user.id == id)[0];
+
+      console.log("Filtro", filtered);
+      commit("setUser", filtered);
+    },
+    async getUser({ commit }, id) {
       const data = await axios
         .get("../data.json")
         .then((result) => result.data.users);

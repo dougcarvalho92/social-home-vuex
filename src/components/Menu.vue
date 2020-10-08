@@ -5,7 +5,7 @@
         <img :src="user.user_image" alt="Logo" class="header-image" />
         <div class="page-info">
             <h3>{{ user.name }}</h3>
-            <h4>{{ user.name }}</h4>
+            <p>{{ user.segment }}</p>
         </div>
     </div>
     <ul class="header-menu">
@@ -81,6 +81,7 @@ export default {
 @media screen and (min-width: 767px) {
     .app-header {
         max-width: 1100px;
+        ;
         margin: 0 auto;
     }
 

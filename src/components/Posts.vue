@@ -1,10 +1,10 @@
 <template>
 <article v-for="post in posts" :key="post.id" :class="post.sponsored ? 'post-sponsored' : 'post-default'">
     <div class="user-info">
-        <img src="https://http2.mlstatic.com/D_NQ_NP_614041-MLB27185740295_042018-O.jpg" />
+        <img :src="post.user_info.picture" />
         <div class="post-title">
             <h4 class="post-title">
-                {{ post.name }} <small class="action-text">atualizou a página </small>
+                {{ post.user_info.name }} <small class="action-text">atualizou a página </small>
             </h4>
             <p class="action-sponsed" v-if="post.sponsored">Patrocinado</p>
             <p class="action-time" v-else>
@@ -158,8 +158,7 @@ export default {
 }
 
 @media screen and (min-width: 767px) {
-    .user-info[data-v-67344653] {
-
+    .user-info {
         grid-template-columns: 1fr 7fr;
 
     }
@@ -167,7 +166,7 @@ export default {
     .post-image,
     .post-video {
         width: 100%;
-        height: 200px;
+        height: 300px;
         border: none;
         outline: none;
     }

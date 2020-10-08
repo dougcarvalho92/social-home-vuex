@@ -24,11 +24,10 @@ export default {
 <style scoped>
 .app-bar {
     background-color: #404040;
-
 }
 
 .app-bar header {
-    max-width: 1100px;
+
     height: 8vh;
     display: grid;
     align-items: center;

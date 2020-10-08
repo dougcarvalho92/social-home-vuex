@@ -29,12 +29,12 @@ export default {
 
 <style scoped>
 .about-card {
-    background: #fff;
     text-align: left;
     border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .card-content {
+    background: #fff;
     color: #a1a1a1;
     font-size: 1rem;
     padding: 1rem;
@@ -56,8 +56,7 @@ export default {
 
 @media screen and (min-width: 767px) {
     .about-card {
-        max-height: 350px;
+        grid-row: span 2;
     }
-
 }
 </style>
