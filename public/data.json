@@ -1,0 +1,98 @@
+{
+    "users": [
+        {
+            "id": "5f7ce11b612acfc98e7748cd",
+            "name": " Vx Comunicação",
+            "user_image": "https://http2.mlstatic.com/D_NQ_NP_614041-MLB27185740295_042018-O.jpg",
+            "description": "Lorem Ipsum is simply dummy text of the prin typesetting industry. Lorem Ipsum has been t industry\"s standard dummy text ever since the when an unknown printer took a galley of type scrambled it to make a type specimen book. survived not only five centuries, but also the electronic typesetting, remaining essentially. It was popularised in the 1960s",
+            "site": "https: //vxcomunicacao.com.br",
+            "email": "contato@vxcomunicacao.com.br"
+        }
+    ],
+    "posts": [
+        {
+            "user_id": "5f7ce11b612ac2398e7748cd",
+            "id": "5f7ce11b654acfc98e7748cd",
+            "media": "http://placehold.it/400x250",
+            "name": "João",
+            "registered": "2017-06-03T04:04:59",
+            "sponsored": false,
+            "liked": false,
+            "likeCount": 0,
+            "type": "image",
+            "content": "A type specimen book. survived not only five centuries, but also the electronic typesetting, remaining essentially. It was popularised in the 1960s"
+        },
+        {
+            "user_id": "5f7ce11b612acfc98e7748cd",
+            "id": "5f7ce11b654acfc98e7748cd",
+            "media": "http://placehold.it/400x250",
+            "name": "Dianne",
+            "registered": "2017-06-03T04:04:59",
+            "sponsored": false,
+            "liked": false,
+            "likeCount": 0,
+            "type": "image",
+            "content": "A type specimen book. survived not only five centuries, but also the electronic typesetting, remaining essentially. It was popularised in the 1960s"
+        },
+        {
+            "user_id": "5f7ce11b612acfc98e7748cd",
+            "id": "5f7ce11be3fdf1a5987b258d",
+            "media": "http://placehold.it/400x250",
+            "name": "Kaufman",
+            "registered": "2020-03-12T05:47:34",
+            "sponsored": false,
+            "liked": false,
+            "likeCount": 10,
+            "type": "image",
+            "content": "Lorem Ipsum is simply dummy text of the prin typesetting industry. Lorem Ipsum has been t."
+        },
+        {
+            "user_id": "5f7ce11b612acfc98e7748cd",
+            "id": "5f7ce11bc3ad559df87f1377",
+            "media": "http://placehold.it/400x250",
+            "name": "Vx Comunicação",
+            "registered": "2020-02-21T12:42:28",
+            "sponsored": true,
+            "liked": true,
+            "likeCount": 1,
+            "type": "image",
+            "content": "Electronic typesetting, remaining essentially. It was popularised in the 1960s"
+        },
+        {
+            "user_id": "5f7ce11b612acfc98e7748cd",
+            "id": "5f7ce11b410b2dadfc7d30bc",
+            "media": "http://placehold.it/400x250",
+            "name": "Dianne Kaufman",
+            "registered": "2014-04-01T01:22:27",
+            "sponsored": false,
+            "liked": true,
+            "likeCount": 1,
+            "type": "image",
+            "content": "Scrambled it to make a type specimen book. survived not only five centuries, but also the electronic typesetting, ."
+        },
+        {
+            "user_id": "5f7ce11b612acfc98e7748cd",
+            "id": "5f7ce11b68d25dfd88f1d1ce",
+            "media": "http://placehold.it/400x250",
+            "name": "Dianne Kaufman",
+            "registered": "2020-08-01T07:23:23",
+            "sponsored": false,
+            "liked": false,
+            "likeCount": 1,
+            "type": "image",
+            "content": "Type specimen book. survived not only five centuries, but also the electronic typesetting, remaining essentially. "
+        },
+        {
+            "user_id": "5f7ce11b612acfc98e7748cd",
+            "id": "5f7ce11b68d25ddd88f1d1ce",
+            "media": "bEl6yN3vd-U",
+            "name": "Dianne Kaufman",
+            "registered": "2020-08-01T07:23:23",
+            "sponsored": false,
+            "liked": false,
+            "likeCount": 1,
+            "type": "video",
+            "content": "It was popularised in the 1960s"
+        }
+    ]
+}
