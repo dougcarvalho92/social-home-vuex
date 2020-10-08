@@ -15,7 +15,8 @@
     <p class="post-message">
         {{ post.content }}
     </p>
-    <img :src="post.media" v-if="post.type === 'image'" class="post-image" />
+    <img :src="post.media" v-if="post.type === 'image' && post.media" class="post-image" />
+
     <iframe v-else-if="post.type === 'video'" :src="'https://www.youtube.com/embed/' + post.media" class="post-video">
     </iframe>
 
@@ -46,12 +47,12 @@ export default {
             if (!status) {
                 this.$store.commit("addLike", {
                     id,
-                    liked: true
+                    liked: true,
                 });
             } else {
                 this.$store.commit("removeLike", {
                     id,
-                    liked: false
+                    liked: false,
                 });
             }
         },
@@ -77,12 +78,15 @@ export default {
     background: #fff;
     margin-bottom: 1.3rem;
     color: #a1a1a1;
+    border-radius: 3px;
 }
 
 .post-sponsored {
     background: #404040;
     margin-bottom: 1.3rem;
     color: #a1a1a1;
+    border-radius: 3px;
+
 }
 
 .post-title {
@@ -99,7 +103,7 @@ export default {
 
 .post-message {
     text-align: left;
-    padding: 1rem 1rem 0.5rem 1rem;
+    padding: 0 1rem;
 }
 
 .action-text,
@@ -151,5 +155,21 @@ export default {
 
 .action button.active {
     color: #00afb8;
+}
+
+@media screen and (min-width: 767px) {
+    .user-info[data-v-67344653] {
+
+        grid-template-columns: 1fr 7fr;
+
+    }
+
+    .post-image,
+    .post-video {
+        width: 100%;
+        height: 200px;
+        border: none;
+        outline: none;
+    }
 }
 </style>

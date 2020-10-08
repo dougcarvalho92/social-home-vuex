@@ -1,54 +1,82 @@
 <template>
 <div class="newPost">
     <label for="content">O que você está pensando?</label>
-    <input type="text" id="content" v-model="content" @focus="showContentMedia" />
-    <div :class="[focus ? 'show' : 'hidden', 'media-content ']">
-        <div class="input-group">
-            <label for="media">Desejar adicionar um arquivo? </label>
-            <input type="file" name="media" id="media" @change="changeInputFile" accept="image/*" />
-        </div>
 
-        <div class="input-group">
-            <input type="checkbox" name="sponsored" id="sponsored" value="Patrocinado? " v-model="sponsored" />
-            <label for="sponsored">Patrocinado? </label>
-        </div>
-    </div>
+    <textarea type="text" id="content" v-model="content" cols="30" rows="8" />
+
     <button @click="addNewPost">Enviar</button>
 </div>
 </template>
 
 <script>
+import moment from "moment";
 export default {
     name: "NewPost",
     data: function () {
         return {
             content: "",
-            media: File,
-            sponsored: false,
-            focus: false,
+            media: "",
         };
+    },
+    computed: {
+        user() {
+            return this.$store.state.user;
+        },
     },
     methods: {
         addNewPost() {
-            this.$store.dispatch({
-                "user_id": "5f7ce11b612ac2398e7748cd",
-                "id": "5f7ce11b654acfc98e7748cd",
-                "media": "http://placehold.it/400x250",
-                "name": "João",
-                "registered": "2017-06-03T04:04:59",
-                "sponsored": false,
-                "liked": false,
-                "likeCount": 0,
-                "type": "image",
-                "content": "A type specimen book. survived not only five centuries, but also the electronic typesetting, remaining essentially. It was popularised in the 1960s"
-            }, )
+            if (this.content) {
+                this.checkContent();
+                this.$store.commit("addPost", {
+                    user_id: this.user.id,
+                    id: "5f7ce11b654acfc98e7748cd",
+                    media: this.media,
+                    name: this.user.name,
+                    registered: moment(moment.now()).format("YYYY-MM-DDTHH:mm:ss"),
+                    sponsored: false,
+                    liked: false,
+                    likeCount: 0,
+                    type: this.type,
+                    content: this.content,
+                });
+            } else {
+                alert("Preencha os campos necessários!");
+            }
+        },
+        checkContent() {
+            if (this.haveYoutubeLink(this.content)) {
+                this.focus = false;
+                const videoID = this.content.substring(
+                    this.content.lastIndexOf("?v") + 3,
+                    this.content.lastIndexOf("")
+                );
+                this.media = videoID;
+                this.type = "video";
+                this.content = this.content.replace(
+                    /((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w-]+\?v=|embed\/|v\/)?)([\w-]+)(\S+)?$/,
+                    ""
+                );
+            } else if (this.haveImageLink(this.content)) {
+                const link = this.content.substring(
+                    this.content.lastIndexOf("http"),
+                    this.content.lastIndexOf("")
+                );
+                this.media = link;
+                this.type = "image";
 
+                this.content = this.content.replace(link, "");
+            } else {
+                this.type = "text";
+                this.media = "";
+            }
         },
-        changeInputFile(event) {
-            this.media = event.target.files[0];
+        haveYoutubeLink(content) {
+            return /((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w-]+\?v=|embed\/|v\/)?)([\w-]+)(\S+)?$/.test(
+                content
+            );
         },
-        showContentMedia() {
-            this.focus = true;
+        haveImageLink(content) {
+            return /(jpg|gif|png|JPG|GIF|PNG|JPEG|jpeg)$/.test(content);
         },
     },
 };
@@ -66,11 +94,19 @@ export default {
     text-align: left;
 }
 
-.newPost input {
-    margin: 1rem 0;
+.post-image,
+.post-video {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
-.newPost input+label {
+.newPost #content {
+    margin: 1rem 0;
+    resize: none;
+}
+
+.newPost #content+label {
     margin-left: 1rem;
 }
 
@@ -79,42 +115,12 @@ export default {
     border-radius: 8px;
     border: none;
     background: #e8e8e8;
-
 }
 
 .input-group {
     margin-bottom: 1.2rem;
     width: 100%;
     overflow: hidden;
-
-}
-
-#media::-webkit-file-upload-button {
-    visibility: hidden;
-}
-
-#media::before {
-    content: "Escolha uma imagem";
-    display: inline-block;
-    background: linear-gradient(top, #f9f9f9, #e3e3e3);
-    border: 1px solid #999;
-    border-radius: 3px;
-    padding: 8px 16px;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-    text-shadow: 1px 1px #fff;
-    font-weight: 700;
-    font-size: 0.8rem;
-}
-
-#media:hover::before {
-    border-color: black;
-}
-
-#media:active::before {
-    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
 }
 
 .newPost button {
@@ -126,17 +132,24 @@ export default {
     color: #fff;
 }
 
-.show {
-    height: 150px;
-    display: block;
-}
+@media screen and (min-width: 767px) {
+    .newPost {
+        margin-top: 0px;
+        margin-bottom: 1.3rem;
+        border-radius: .3rem;
+        border: 1px solid #c7c7c7;
+    }
 
-.hidden {
-    height: 0px;
-    display: none;
-}
+    .newPost label {
+        color: #00afb8;
+    }
 
-.media-content {
-    transition: height 2s;
+    .newPost #content {
+        height: 70px;
+        outline: 0;
+        padding: 15px;
+        border: 1px solid #c7c7c7;
+    }
+
 }
 </style>

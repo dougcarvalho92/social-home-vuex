@@ -53,4 +53,11 @@ export default {
     font-size: 1rem;
     padding: 0 1rem;
 }
+
+@media screen and (min-width: 767px) {
+    .about-card {
+        max-height: 350px;
+    }
+
+}
 </style>

@@ -20,7 +20,7 @@ export default createStore({
       post.liked = liked;
     },
     addPost(state, post) {
-      state.posts = [...state.posts, post];
+      state.posts.unshift(post);
     },
     setPosts(state, posts) {
       state.posts = posts;

@@ -1,16 +1,19 @@
 <template>
 <section class="app-header">
     <div class="banner"></div>
-    <div class="header-nav">
+    <div class="header-info">
         <img :src="user.user_image" alt="Logo" class="header-image" />
-        <h3>{{ user.name }}</h3>
-        <ul class="header-menu">
-            <li class="active">Timeline</li>
-            <li>About</li>
-            <li>Welcome</li>
-            <li>VX</li>
-        </ul>
+        <div class="page-info">
+            <h3>{{ user.name }}</h3>
+            <h4>{{ user.name }}</h4>
+        </div>
     </div>
+    <ul class="header-menu">
+        <li class="active">Timeline</li>
+        <li>About</li>
+        <li>Welcome</li>
+        <li>VX</li>
+    </ul>
 </section>
 </template>
 
@@ -28,6 +31,8 @@ export default {
 <style scoped>
 .app-header {
     max-width: 1200px;
+    background-color: #404040;
+    border-radius: 3px;
 }
 
 .banner {
@@ -37,11 +42,10 @@ export default {
 }
 
 .header-nav {
-    background-color: #404040;
     text-align: center;
 }
 
-.header-nav h3 {
+.page-info * {
     color: #fff;
 }
 
@@ -72,5 +76,65 @@ export default {
 
 .header-menu li:hover {
     color: #00afb8;
+}
+
+@media screen and (min-width: 767px) {
+    .app-header {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .header-info {
+        display: flex;
+        grid-template-columns: 1fr 5fr;
+        padding: 1rem;
+        background-color: #00afb8;
+        position: relative;
+    }
+
+    .page-info h3 {
+        font-size: 2rem;
+    }
+
+    .page-info {
+        margin-left: 154px;
+    }
+
+    .page-info * {
+        color: #fff;
+        text-align: left;
+        margin: 10px;
+    }
+
+    .header-menu {
+        margin-left: 150px;
+        width: fit-content;
+        padding-bottom: 0;
+    }
+
+    .header-menu li {
+        margin-right: 45px;
+        line-height: 2rem;
+        cursor: pointer;
+    }
+
+    .header-image {
+        height: 150px;
+        width: 150px;
+        margin-right: 1rem;
+        position: absolute;
+        bottom: -36px;
+    }
+
+    .active {
+        color: inherit;
+        border-bottom: 8px solid #00afb8;
+    }
+
+    .header-menu li:hover {
+        color: inherit;
+        color: inherit;
+        border-bottom: 8px solid #00afb8;
+    }
 }
 </style>

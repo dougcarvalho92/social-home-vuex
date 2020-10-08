@@ -41,15 +41,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
     .container {
-        max-width: 1200px;
-    }
-
-    .container {
+        max-width: 1100px;
         display: grid;
-        grid-template-columns: 1fr 3fr;
-        grid-column-gap: 1rem;
+        grid-template-columns: 1fr 2fr;
+        grid-auto-rows: none;
+        grid-gap: 1rem;
+        margin: 0 auto;
     }
 }
 </style>
