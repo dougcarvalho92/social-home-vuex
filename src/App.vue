@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Home from "./pages/Home";
+import Home from "./views/Home";
 
 export default {
     name: "App",
