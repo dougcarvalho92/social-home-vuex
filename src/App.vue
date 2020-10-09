@@ -25,6 +25,10 @@ export default {
     color: #2c3e50;
 }
 
+* {
+    font-family: Roboto;
+}
+
 body {
     background: #e8e8e8;
 }
