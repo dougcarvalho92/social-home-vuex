@@ -2,7 +2,7 @@
   <section class="app-header">
     <div class="banner"></div>
     <div class="header-info">
-      <img :src="user.user_image" alt="Logo" class="header-image" />
+      <img :src="user.picture" alt="Logo" class="header-image" />
       <div class="page-info">
         <h3>{{ user.name }}</h3>
         <p>{{ user.segment }}</p>

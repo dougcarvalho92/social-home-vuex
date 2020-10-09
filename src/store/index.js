@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import axios from "axios";
-
+import crypto from "crypto";
+import moment from "moment";
 export default createStore({
   state: {
     user: {},
@@ -20,7 +21,21 @@ export default createStore({
       post.liked = liked;
     },
     addPost(state, post) {
-      state.posts.unshift(post);
+      const id = crypto.randomBytes(12).toString("HEX");
+      const newpost = {
+        ...post,
+        user_info: {
+          user_id: state.user.id,
+          picture: state.user.picture,
+          name: state.user.name,
+        },
+        id,
+        registered: moment(moment.now()).format("YYYY-MM-DDTHH:mm:ss"),
+        sponsored: false,
+        liked: false,
+        likeCount: 0,
+      };
+      state.posts.unshift(newpost);
     },
     setPosts(state, posts) {
       state.posts = posts;

@@ -4,7 +4,10 @@
         <img :src="post.user_info.picture" />
         <div class="post-title">
             <h4 class="post-title">
-                {{ post.user_info.name }} <small class="action-text">atualizou a página </small>
+                {{ post.user_info.name }}
+                <small class="action-text" v-if="post.sponsored === false">{{
+            post.status
+          }}</small>
             </h4>
             <p class="action-sponsed" v-if="post.sponsored">Patrocinado</p>
             <p class="action-time" v-else>
@@ -86,7 +89,6 @@ export default {
     margin-bottom: 1.3rem;
     color: #a1a1a1;
     border-radius: 3px;
-
 }
 
 .post-title {
@@ -160,7 +162,6 @@ export default {
 @media screen and (min-width: 767px) {
     .user-info {
         grid-template-columns: 1fr 7fr;
-
     }
 
     .post-image,
