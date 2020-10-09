@@ -39,7 +39,8 @@ export default {
 .banner {
     margin-top: 10px;
     height: 150px;
-    background-color: #00afb8;
+    background-image: url("https://pbs.twimg.com/profile_banners/31404373/1530553034/1500x500");
+    background-size: cover;
 }
 
 .header-nav {
