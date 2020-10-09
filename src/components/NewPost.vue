@@ -15,7 +15,7 @@ export default {
         return {
             content: "",
             media: "",
-            type: ""
+            type: "",
         };
     },
     computed: {
@@ -24,18 +24,24 @@ export default {
         },
     },
     methods: {
-        addNewPost() {
+        async addNewPost() {
             if (this.content) {
                 this.checkContent();
 
-                this.$store.commit("addPost", {
+                await this.$store.commit("addPost", {
                     media: this.media,
                     type: this.type,
                     content: this.content,
                 });
+                this.resetNewPost();
             } else {
                 alert("Preencha os campos necessários!");
             }
+        },
+        resetNewPost() {
+            this.content = "";
+            this.media = "";
+            this.type = "";
         },
         checkContent() {
             if (this.haveYoutubeLink(this.content)) {
@@ -130,7 +136,7 @@ export default {
     .newPost {
         margin-top: 0px;
         margin-bottom: 1.3rem;
-        border-radius: .3rem;
+        border-radius: 0.3rem;
         border: 1px solid #c7c7c7;
     }
 
@@ -144,6 +150,5 @@ export default {
         padding: 15px;
         border: 1px solid #c7c7c7;
     }
-
 }
 </style>
