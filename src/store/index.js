@@ -55,7 +55,9 @@ export default createStore({
   actions: {
     async fetchPosts({ commit }) {
       const data = await axios
-        .get("../data.json")
+        .get("https://api.jsonbin.io/b/5f807583302a837e95776317",{headers:{
+          'secret-key': '$2b$10$Rk9WDb2xktbbajLh9OMs0u3UrykZpud66TZIXBMqghq1MUFUXE4Du'
+        }})
         .then((result) => result.data.posts);
 
       commit(
