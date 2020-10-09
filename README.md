@@ -2,7 +2,7 @@
 
 Teste desenvolvido utilizando VueJs.
 
-![](readme/tela.png)
+![](readme/git-image.png)
 
 ## Download
 
