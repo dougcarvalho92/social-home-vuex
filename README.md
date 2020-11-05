@@ -1,4 +1,4 @@
-# Teste Vx Comunicação
+# Social Home
 
 Teste desenvolvido utilizando VueJs.
 
@@ -7,7 +7,7 @@ Teste desenvolvido utilizando VueJs.
 ## Download
 
 ```bash
-git clone https://github.com/dougcarvalho92/test-vx-comunicacao.git
+git clone https://github.com/dougcarvalho92/social-home-vuex.git
 ```
 
 ## Dependências
@@ -41,4 +41,6 @@ vue ui
 - Run task
 ## 2 - Projeto online
 Acesse - [https://teste-vx-comunicacao.netlify.app/#/](https://teste-vx-comunicacao.netlify.app/#/)
+
+Feito como teste para Vx comunicação
 
